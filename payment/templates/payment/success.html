@@ -1,0 +1,366 @@
+<!-- {% if products %}
+          <h1> yes present </h1>
+
+{% endif %} -->
+
+
+<!-- {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %} -->
+
+
+<!-- {{ishothour}} -->
+
+
+{% load static %}
+
+
+
+<html>
+    <title>
+        SUCCESS
+    </title>
+    <head>
+
+        <!-- bs elements ############# -->
+
+
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+        <!-- bs elemets ############## -->
+
+
+
+
+
+        <h1 align = "center" class="hg">DOODLEBLUE CART</h1>
+        <h1 align = "center" class="hg">PRODUCT ITEMS</h1>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Archivo|Julius+Sans+One&display=swap" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="{% static '/css/main.css' %}"> -->
+
+        <style>
+            
+            /* #main{
+                font-family: 'Archivo', sans-serif;
+
+            } */
+
+            .hg{
+                color: skyblue;
+                font-family: 'Julius Sans One', sans-serif;
+            }
+
+            body{
+                background-image: url("{% static '/images/bg.jpg' %}");
+            }
+
+            table{
+                color: azure;
+                font-family: 'Julius Sans One', sans-serif;
+            }
+
+            .btn{
+                background-color:azure;
+                font-family: 'Archivo', sans-serif;
+            }
+            
+            #btn2{
+                background-color:azure;
+                font-family: 'Archivo', sans-serif;
+                font-style: oblique;
+
+            }
+
+            #btn3{
+                color:white;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 20px;
+            }
+
+            .ad {
+            border-left: thick solid #ff0000;
+            }
+
+
+        
+        </style>        
+
+    </head>  
+
+    <body id="b" >
+        
+        <div class="master">
+
+
+
+          <div align="center" style="position:relative; right:-150; bottom: 0px; " id="main" > 
+
+            <table border="1" align="center" style="float: left">
+                <tr>
+                    <td colspan="3" align="center">
+                        ELECTRONICS
+                    </td>
+                </tr>
+                {% for product in products %}           
+                {% if product.catid == 1 %}
+
+                <tr>
+                    <td>{{ product.item }}</td> <td>{{ product.price }} </td>
+    
+                    <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
+    
+                </tr>
+                
+                {% endif %}
+    
+                {%endfor%}
+                        
+            </table>
+
+
+
+
+          <table border="1" align="center" style="float: left">
+            <tr>
+                <td colspan="3" align="center">
+                    FURNITURE
+                </td>
+            </tr>
+            {% for product in products %}
+
+            
+            {% if product.catid == 2 %}
+
+            
+            
+            <tr>
+                <td>{{ product.item }}</td> <td>{{ product.price }} </td>
+
+                <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
+
+            </tr>
+            
+            {% endif %}
+
+            {%endfor%}
+            
+          </table>
+
+
+
+          <table border="1" align="center" style="float: left">
+            <tr>
+                <td colspan="3" align="center">
+                    FOOD
+                </td>
+            </tr>
+            {% for product in products %}
+
+            
+            {% if product.catid == 3 %}
+
+            
+            
+            <tr>
+                <td>{{ product.item }}</td> <td>{{ product.price }} </td>
+
+                <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
+
+            </tr>
+            
+            {% endif %}
+
+            {%endfor%}
+            
+          </table>
+
+
+          <table border="1" align="center" style="float: left">
+            <tr>
+                <td colspan="3" align="center">
+                    HOME APPLIANCES
+                </td>
+            </tr>
+            {% for product in products %}
+
+            
+            {% if product.catid == 4 %}
+
+            
+            
+            <tr>
+                <td>{{ product.item }}</td> <td>{{ product.price }} </td>
+
+                <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
+
+            </tr>
+            
+            {% endif %}
+
+            {%endfor%}
+            
+          </table>
+
+          <table border="1" align="center" style="float: left">
+            <tr>
+                <td colspan="3" align="center">
+                    STATIONARY
+                </td>
+            </tr>
+            {% for product in products %}
+            
+            {% if product.catid == 5 %}
+
+            <tr>
+                <td>{{ product.item }}</td> <td>{{ product.price }} </td>
+
+                <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
+
+            </tr>
+            
+            {% endif %}
+
+            {%endfor%}
+                    
+        </table>
+
+        </div>
+
+       
+
+        {% if ishothour == 1 %}
+        
+        <div class="ad">
+        <table border="1" style="float: right;">
+            <tr>
+                <td align = "center"colspan="3">ADVERTISEMENT</td>
+            </tr>
+            
+            
+            {% for product in products %}            
+            {% if product.catid == max %}
+
+            <tr>
+                <td>{{ product.item }}</td> <td>{{ product.price }} </td>
+
+                <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
+
+            </tr>
+            
+            {% endif %}
+            {%endfor%}
+
+        </table>
+        </div>
+
+        {% endif %}
+
+        
+         <div style = "position:relative; left:-800px; bottom: -500px; ">
+            <form align="center" id=formid  > {% csrf_token %}
+
+                <button type="button" name="deletebtn" onclick="ajaxcalldel()" id="btn2">CLEAR CART</button>
+              </form>
+
+        </div>
+
+        
+
+
+        <div align="center" style = "position:relative; left:-800px; bottom: -500; ">
+             <a href="http://127.0.0.1:8000/users/{{iden}}/cart" id="btn3">GO TO CART</a>
+             </div>
+        
+    
+  
+            </body>
+
+        <script type="text/javascript">
+        tok = $('input[name=csrfmiddlewaretoken]').val();
+
+
+            $(function () {
+                $(".btn").on('click', function (e) {
+                    // alert($(this).val());
+                    t = $(this).val();
+                    myfunction(t);
+
+                });
+            });
+
+            function myfunction(t)
+                        {
+                            
+                            // alert("button clicked")
+                            // var ex = document.getElementById('it4');
+                            x = t;
+                            var s1 = x.split("|"); 
+                            console.log(x);
+                            console.log(s1[0]);
+                            console.log(s1[1]);
+                            var p = Number(s1[1])
+                            console.log(p);
+                            
+                            // alert("val read")
+
+                            ajaxcall(s1,p);
+                        }
+
+            function ajaxcall(s1,p)
+            {
+                
+                $.ajax(
+                {
+                    
+                    type:'POST',
+                    url:'http://127.0.0.1:8000/users/{{ iden }}/cart',
+                    data:{
+
+                        item : s1[0],
+                        price : p,
+                        // csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val(),
+                        csrfmiddlewaretoken : tok,
+
+                    },
+                    success:function(){
+                        alert("Added to Cart");
+                    },
+                    error: function(){
+                        // alert("error");
+                    }
+                });
+            }
+
+            function ajaxcalldel()
+            {
+                $.ajax(
+                {
+                    
+                    type:'DELETE',
+                    url:'http://127.0.0.1:8000/users/{{ iden }}/cart',
+                    // data:{
+                    //         csrfmiddlewaretoken : tok,
+                    //         },
+                    success:function(){
+                        alert("Cart Cleared ");
+                    },
+                    error: function(){
+                        // alert("error");
+                    }
+                });
+            }
+
+        </script>  

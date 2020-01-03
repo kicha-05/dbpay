@@ -1,0 +1,47 @@
+<html>
+    
+    <head>
+        <h1>LOGGING IN PLEASE WAIT</h1>
+        {{id}}
+        {{token}}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+    </body>
+    
+    <script type="text/javascript">
+
+            
+            
+                $(function(){
+                alert("inside bro")
+                yourfunction();
+                });
+
+                function yourfunction()
+                {
+                    console.log("http://127.0.0.1:8000/{{ id }}/product")
+                    $.ajax({ 
+                    type : "GET", 
+                    url : "http://127.0.0.1:8000/{{ id }}/product", 
+                    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', '{{token}}');},
+                    success : function(result) { 
+                        // console.log(result)
+                        console.log(result)
+                        document.write(result);
+                        // window.location.href = data.redirect;
+                    }, 
+                    error : function(result) { 
+                        
+                        ("error")
+                    } 
+                    }); 
+                }
+
+                
+    </script>
+
+
+</html>
+

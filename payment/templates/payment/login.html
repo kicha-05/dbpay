@@ -1,0 +1,76 @@
+
+{% load static %}
+
+
+<html>
+    <head>
+
+        <!-- bs elements ############# -->
+
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+        <!-- bs elemets ############## -->
+
+
+
+    <title>
+    LOGIN PAGE
+    </title>
+    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+    <style>
+
+            body
+            {
+                text-align:center;
+                color: white;
+                font-family: 'ABeeZee';
+                background-image: url("{% static '/images/bg.jpg' %}");
+                
+            }
+            .blah
+            {
+                color: skyblue;
+                font-family: 'Julius Sans One', sans-serif;
+                
+                
+            }
+            .btn
+            {
+                font-family: 'ABeeZee';
+                background-color: white;
+                color: black;
+            }
+
+
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+    <h1 class="blah">
+     LOGIN PAGE
+    </h1>
+    <form target="_blank" name="login" action="http://127.0.0.1:8000/login" method="post"> {% csrf_token %}
+        Username<input type="text" name="name"/>
+        Password<input type="password" name="password"/>
+        <input type="reset" value="Cancel" class="btn"/>
+        <input type="submit" value="Submit" onclick="yourfunction()" class="btn">
+        <input type="hidden" name="csrf-token" value="nc98P987bcpncYhoadjoiydc9ajDlcn">
+        </form>
+    
+    </body>
+
+    <script type="text/javascript">
+
+    </script>
+
+
+</html>

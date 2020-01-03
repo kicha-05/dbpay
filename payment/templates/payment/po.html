@@ -1,0 +1,38 @@
+{% if response %}
+<h1 align="center">PREVIOUS ORDERS</h1>
+{%endif%}
+
+{% load static %}
+
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Archivo|Julius+Sans+One&display=swap" rel="stylesheet">
+        <style>
+            body{
+                background-image: url("{% static '/images/bg.jpg' %}");
+                color: blanchedalmond;
+                font-family: 'Julius Sans One', sans-serif;
+
+            }
+            </style>
+    </head>
+    <body>
+        <table border="1" align="center">
+            <tr>
+                <th> ITEM </th>
+                <TH> PRICE </TH>
+            </tr>
+
+            {% for item in response %}
+            <tr>
+
+                <td>{{item.item}}</td>
+                <td>{{item.price}}</td>
+
+            </tr>
+            {% endfor %}
+
+
+        </table>
+    </body>
+</html>

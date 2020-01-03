@@ -1,0 +1,131 @@
+<!-- {% if products %}
+          <h1> yes present </h1>
+
+{% endif %} -->
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+
+
+
+
+<html>
+    <title>
+        SUCCESS
+    </title>
+    <head>
+        <h1>SUCCESS LOGGING IN  {{id}}        </h1>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    
+ 
+    <body>
+        <form align="center" id=formid  > {% csrf_token %}
+        
+        <table border="1" align="center">
+            <!-- <tr>
+              <th>ITEM</th>
+              <th>PRICE</th>
+            </tr> -->
+            <!-- {% for product in products %}
+            <tr>
+              <td>{{ product.item }}</td> <td>{{ product.price }} </td><br>
+              <td> <input type="checkbox" id="{{ product.id }}" name="parameter[]"  value = "{{ product.price }}" > </td> 
+            </tr>
+            {%endfor%} -->
+            <select name="pros" id="it">
+                {% for product in products %}
+                <!-- {{ product.price }} -->
+                <option value=" {{product.item}} | {{product.price}}">{{product.item}} | PRICE : Rs{{product.price}} </option>
+                {%endfor%}
+            </select>
+
+
+
+
+              
+            
+            
+          </table>
+          <!-- <input type="submit", value="ADD TO CART"> -->
+          <input type="button" value="ADD to Cart" onclick="myfunction()">
+        </form>
+
+
+          
+        <script type="text/javascript">
+
+
+            
+            function myfunction()
+            {
+                
+                alert("button clicked")
+                var ex = document.getElementById('it');
+                x = ex.value
+                var s1 = x.split("|"); 
+                console.log(x);
+                console.log(s1[0]);
+                console.log(s1[1]);
+                var p = Number(s1[1])
+                console.log(p);
+                
+                
+                alert("val read")
+                $.ajax(
+                {
+                    
+                    type:'POST',
+                    url:'http://127.0.0.1:8000/users/{{ iden }}/cart',
+                    data:{
+
+                        item : s1[0],
+                        price : p,
+                        
+                        // name: "#name", 
+                        // email: '{{ email }}',
+                        // password: '{{ password }}',
+                        // csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val(),
+                    },
+                    success:function(){
+                        alert("success ");
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });
+            }
+        </script>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <!-- EDIT NAME<input type="text" id="name">
+              <input type="button" value="SUBMIT" onclick="myfunction()"> -->
+          
+
+          

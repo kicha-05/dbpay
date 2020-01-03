@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <H1 align="center" >ADMINISTRATION</H1>
+    </head>
+    <body>
+        <table border="1" align="center">
+                
+                <tr>
+                <td align="center">NAME</td>
+                <td align="center">EMAIL</td>
+                <td align="center">ITEMS IN CART</td>
+                </tr>
+                <tr>
+                {% for user in users %}
+                    {% if user.name != "admin" %}
+                        <td>{{user}}</td>
+                        <td>{{user.email}}</td>
+                            {% if user.cart_set.all.exists %}
+                                <td>{% for items in user.cart_set.all %}
+                                    {{items}},
+                                {% endfor %}</td>
+                            {% else %}
+                                <td>None</td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+        </table>
+
+
+
+        
+    </body>
+</html>
+
+
+
+

@@ -1,0 +1,165 @@
+{% load static %}
+<!-- {{payurl}} -->
+<html>
+    <head >
+
+        <!-- bs elements ############# -->
+
+
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+        <!-- bs elemets ############## -->
+
+
+
+
+
+        <h1 align="center">YOUR CART</h1> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <style>
+        
+            body{
+                background-image: url("{% static '/images/bg.jpg' %}");
+                color: blanchedalmond;
+                font-family: 'Julius Sans One', sans-serif;
+
+            }
+
+            table{
+                color: azure;
+                font-family: 'Julius Sans One', sans-serif;
+            }
+
+            #tbl{
+                color: azure;
+                font-family: 'Julius Sans One', sans-serif;
+                font-variant: small-caps;
+            }
+            
+
+        
+        </style>
+
+
+
+    </head>
+    <body>
+        
+
+        <div class="container">
+            
+            <table class="table" id="tbl">
+              <thead>
+                <tr >
+                  <th>ITEM</th>
+                  <th>PRICE</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                  {% for item in cartitems %}
+                <tr>
+                  <td>{{item.item}}</td>
+                  <td>{{item.price}}</td>
+                </tr>
+                  {% endfor %}
+                  <tr>
+                    <td >
+                        Total
+                    </td>
+                    <td >
+                        {{total}}
+                    </td>
+                </tr>     
+              </tbody>
+            </table>
+          </div>
+
+<!-- 
+
+        <table border="1" align="center">
+            <tr>
+                <td>ITEM</td>
+                <td>PRICE</td>
+            </tr>
+            {% for cartitem in cartitems %}
+            <tr>
+                
+                <td>
+                    {{cartitem.item}}
+                </td>
+                <td>
+                    {{cartitem.price}}
+                </td>
+            </tr>
+            {%endfor%}
+            <tr>
+                <td >
+                    Total
+                </td>
+                <td >
+                    {{total}}
+                </td>
+            </tr>            
+        </table> -->
+
+
+
+        <form align = "center">
+            <input type="button", value="CHECK OUT" onclick="openpaylink(),addtoprevorder()">
+            <button type="button" name="deletebtn" onclick="ajaxcalldel()">CLEAR CART</button>
+        </form>
+        
+    </body>
+    <script type="text/javascript">
+        function ajaxcalldel()
+            {
+                // alert("infunction")
+                $.ajax(
+                {
+                    type:'DELETE',
+                    url:'http://127.0.0.1:8000/users/{{ iden }}/cart',
+                    // data:{
+                    //         csrfmiddlewaretoken : tok,
+                    //         },
+                    success:function(){
+                        alert("Cart Cleared ");
+                        location.reload();
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });
+            }
+
+
+            function openpaylink()
+            {   
+                pu = "{{payurl}}"
+                if (pu !== "None" )
+                {
+                    window.open("{{payurl}}")
+                }
+                else{
+                    alert("No items in cart")
+                }
+            }
+
+            // function addtoprevorder()
+            // {
+            //     alert("clickeddd buddy")
+            // }
+
+
+
+    </script>
+
+</html>
