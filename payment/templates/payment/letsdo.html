@@ -1,0 +1,554 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  
+<style>
+
+    .card{
+        size: 50px;
+        border: none;
+    }
+
+    #g1{
+        /* background-color:rgb(51, 51, 51); */
+        position: relative;
+        right: -520px;
+    }
+
+    #jumbo{
+        /* background-image: url('{% static '/images/giphy.gif' %}'); */
+        /* background-image: url('{% static '/images/giphy.gif' %}'); */
+        background-repeat: no-repeat;
+        background-size:  400px;
+        background-position: 0px 30px;
+        background-color : white 
+        /* background-size:     50%;
+        background-position: 50% 40%; */
+        
+    
+    }
+
+    .card-img-top{
+        position: relative;
+        float: left;
+        width:  200px;
+        height: 200px;
+        background-position: 50% 50%;
+        background-repeat:   no-repeat;
+        background-size:     cover;
+    }
+
+    /* .navibar{
+        position: fixed;
+
+    } */
+    
+    .mainav{
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+
+    }
+
+    #btn2{
+        position: relative;
+        right: -1250px;
+    }
+
+    #addiv{
+        border: 1px;
+    }
+
+    
+
+</style>
+
+
+
+</head>
+<body>
+
+
+    
+
+
+    <div class="mainav">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">
+            <img src="{% static '/images/logo.gif' %}">
+        </a>
+        
+        
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item" style="position: relative; right: -1600px;">
+            <a class="nav-link" href="http://127.0.0.1:8000/users/{{iden}}/cart">Cart</a>
+          </li>
+          <li class="nav-item" style="position: relative; right: -1450px;">
+            <a class="nav-link" href="#">Register</a>
+          </li>
+          
+        </ul>
+
+        <div class="d1">
+            <form align="center" id=formid  > {% csrf_token %}
+    
+                <button  type="button" name="deletebtn" onclick="ajaxcalldel()" id="btn2" class="btn btn-prmary" style="background-color: #007bff; color: white;" >CLEAR CART</button>
+              </form>
+    
+        </div>
+    
+        <!-- <div class="d2" align="center">
+            <a href="http://127.0.0.1:8000/users/{{iden}}/cart" class = "btn btn-primary" id="btn3">GO TO CART</a>
+            </div> -->
+    
+      </nav>
+    </div>  
+
+
+    
+
+
+
+
+<div class="jumbotron text-center" id="jumbo" >
+  
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+      
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static '/images/elec.png' %}" alt="Los Angeles">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static '/images/groc.png' %}" alt="Chicago">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static '/images/fur.png' %}" alt="New York">
+          </div>
+        </div>
+      
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      
+      </div>
+  
+</div>
+
+
+
+<!-- PILLSS -->
+<div class="container-fluid">
+
+    
+
+    
+    <!-- Nav pills -->
+    <div class="navibar">
+    <ul class="nav nav-pills" role="tablist" style=" background-color:rgb(51, 51, 51); "  >
+      <li class="nav-item" style="background-color:rgb(51, 51, 51);" id="g1">
+        <a class="nav-link active" data-toggle="pill" href="#home">HOME</a>
+      </li>
+      <li class="nav-item" style="background-color:rgb(51, 51, 51);" id="g1">
+        <a class="nav-link " data-toggle="pill" href="#menu1">ELECTRONICS</a>
+      </li>
+      <li class="nav-item" style="background-color:rgb(51, 51, 51);" id="g1">
+
+        <a class="nav-link" data-toggle="pill" href="#menu2">FOOD & GROCERIES</a>
+      </li>
+      <li class="nav-item" style="background-color:rgb(51, 51, 51);" id="g1">
+
+        <a class="nav-link" data-toggle="pill" href="#menu3">FURNITURE</a>
+      </li>
+      <li class="nav-item" style="background-color:rgb(51, 51, 51);" id="g1">
+
+        <a class="nav-link" data-toggle="pill" href="#menu4">HOUSE APPLIANCES</a>
+      </li>
+      <li class="nav-item" style="background-color:rgb(51, 51, 51);" id="g1">
+
+        <a class="nav-link" data-toggle="pill" href="#menu5">STATIONARY</a>
+      </li>
+    </ul>
+</div>
+    
+    
+    <!-- Tab panes -->
+    {% if ishothour == 1 %}
+    <div class="float-sm-left" id="addiv">ADVERTISEMENTS
+    </br>
+    <div class="wrapper">
+        
+
+        {% for product in products %}
+                {% if product.catid == max %}
+                
+        <div class="card" style="width: 18rem;">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{product.item}}</h5>
+              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              <button type="button" name="name" class="btn btn-primary" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button>
+            </div>
+          </div>
+          </br>
+          {%endif%}
+                {% endfor %} 
+        
+    </div>
+    
+    </div>
+
+    {% endif %}
+    
+    <div class="tab-content">
+      <div id="home" class="container tab-pane active"><br>
+        <h3>HOME</h3>
+
+        
+
+        <div class="wrapper">
+        
+        
+        <div class="row">
+            {% for product in products %}
+            
+            <div class="col-sm-4">
+                <div class="card-deck">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="{{ product.image.url }}" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                      <h4 class="card-title">{{product.item}}</h4>
+                      <!-- <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p> -->
+                      <!-- <a href="#" class="btn btn-primary" >Add to Cart</a> -->
+                      <button type="button" name="name" class="btn btn-primary" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button>
+                        
+                    </div>
+                    
+                    
+                  </div>
+                  </div>
+
+                </br>
+
+            </div>
+        
+            {% endfor %} 
+            
+          </div>
+         
+        </div>
+        
+        
+
+        
+    
+        </div>
+
+
+      
+      <div id="menu1" class="container tab-pane fade"><br>
+        
+        <!-- <div class="wrapper"> -->
+        
+        
+            <div class="row">
+                {% for product in products %}
+                {% if product.catid == 1 %}
+                <div class="col-sm-4">
+                    <div class="card-deck">
+                    <div class="card" style="width:400px">
+                        <img class="card-img-top" src="{{ product.image.url }}" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                          <h4 class="card-title">{{product.item}}</h4>
+                          <!-- <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p> -->
+                          <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                      </div>
+                      </div>
+                    </br>
+    
+                </div>
+                {%endif%}
+                {% endfor %} 
+              </div>
+             
+            <!-- </div> -->
+
+
+
+
+      </div>
+      <div id="menu2" class="container tab-pane fade"><br>
+        
+        
+        <div class="wrapper">
+        
+        
+            <div class="row">
+                {% for product in products %}
+                {% if product.catid == 2 %}
+                
+                <div class="col-sm-4">
+                    <div class="card-deck">
+                    <div class="card" style="width:400px">
+                        <img class="card-img-top" src="{{ product.image.url }}" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                          <h4 class="card-title">{{product.item}}</h4>
+                          <!-- <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p> -->
+                          <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                      </div>
+                      </div>
+                    </br>
+    
+                </div>
+                {%endif%}
+                {% endfor %} 
+              </div>
+             
+            </div>
+
+      </div>
+
+
+      <div id="menu3" class="container tab-pane fade"><br>
+       
+        
+        <div class="wrapper">
+        
+        
+            <div class="row">
+                {% for product in products %}
+                {% if product.catid == 3 %}
+                
+                <div class="col-sm-4">
+                    <div class="card-deck">
+                    <div class="card" style="width:400px">
+                        <img class="card-img-top" src="{{ product.image.url }}" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                          <h4 class="card-title">{{product.item}}</h4>
+                          <!-- <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p> -->
+                          <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                      </div>
+                      </div>
+                    </br>
+    
+                </div>
+                {%endif%}
+                {% endfor %} 
+              </div>
+             
+            </div>
+
+      </div>
+
+      <div id="menu4" class="container tab-pane fade"><br>
+        
+        
+        <div class="wrapper">
+        
+        
+            <div class="row">
+                {% for product in products %}
+                {% if product.catid == 4 %}
+                
+                <div class="col-sm-4">
+                    <div class="card-deck">
+                    <div class="card" style="width:400px">
+                        <img class="card-img-top" src="{{ product.image.url }}" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                          <h4 class="card-title">{{product.item}}</h4>
+                          <!-- <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p> -->
+                          <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                      </div>
+                      </div>
+                    </br>
+    
+                </div>
+                {%endif%}
+                {% endfor %} 
+              </div>
+             
+            </div>
+
+      </div>
+
+
+      <div id="menu5" class="container tab-pane fade"><br>
+        
+        
+        <div class="wrapper">
+        
+        
+            <div class="row">
+                {% for product in products %}
+                {% if product.catid == 5 %}
+                <div class="col-sm-4">
+                    <div class="card-deck">
+                    <div class="card" style="width:400px">
+                        <!-- <img class="card-img-top" src="{{ product.image.url }}" alt="Card image" style="width:100%"> -->
+                        <img class="card-img-top" src="{{ product.image.url }}" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                          <h4 class="card-title">{{product.item}}</h4>
+                          <!-- <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p> -->
+                          <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                      </div>
+                      </div>
+                    </br>
+    
+                </div>
+                {%endif%}
+                {% endfor %} 
+              </div>
+             
+            </div>
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+</body>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    tok = $('input[name=csrfmiddlewaretoken]').val();
+
+
+        $(function () {
+            $(".btn").on('click', function (e) {
+                // alert($(this).val());
+                t = $(this).val();
+                myfunction(t);
+
+            });
+        });
+
+        $(function(){
+            // You used .myCarousel here. 
+            // That's the class selector not the id selector,
+            // which is #myCarousel
+            $('#myCarousel').carousel();
+            });
+
+        function myfunction(t)
+                    {
+                        
+                        // alert("button clicked")
+                        // var ex = document.getElementById('it4');
+                        x = t;
+                        var s1 = x.split("|"); 
+                        console.log(x);
+                        console.log(s1[0]);
+                        console.log(s1[1]);
+                        var p = Number(s1[1])
+                        console.log(p);
+                        
+                        // alert("val read")
+
+                        ajaxcall(s1,p);
+                    }
+
+        function ajaxcall(s1,p)
+        {
+            
+            $.ajax(
+            {
+                
+                type:'POST',
+                url:'http://127.0.0.1:8000/users/{{ iden }}/cart',
+                data:{
+
+                    item : s1[0],
+                    price : p,
+                    // csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val(),
+                    csrfmiddlewaretoken : tok,
+
+                },
+                success:function(){
+                    alert("Added to Cart");
+                },
+                error: function(){
+                    // alert("error");
+                }
+            });
+        }
+
+        function ajaxcalldel()
+        {
+            $.ajax(
+            {
+                
+                type:'DELETE',
+                url:'http://127.0.0.1:8000/users/{{ iden }}/cart',
+                // data:{
+                //         csrfmiddlewaretoken : tok,
+                //         },
+                success:function(){
+                    alert("Cart Cleared ");
+                },
+                error: function(){
+                    // alert("error");
+                }
+            });
+        }
+
+    </script>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,14 +1,47 @@
+{% load static %}
 
 <html>
     <head>
+
+        <!-- bs elements ############# -->
+
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+        <!-- bs elemets ############## -->
+
+
+
+
     <title>
     Registration page
     </title>
+
+    <style>
+        body
+            {
+                text-align:center;
+                color: white;
+                font-family: 'ABeeZee';
+                background-image: url("{% static '/images/bg.jpg' %}");
+                font-family: 'Julius Sans One', sans-serif;
+            }
+    
+    </style>
+
+
     </head>
     <body>
     
     <h1>
-    SIMPLE REGISTRATION PAGE
+    REGISTRATION PAGE
     </h1>
     <form target="_blank" name="login" action="http://127.0.0.1:8000/users" method="post">
     Username<input type="text" name="name"/>

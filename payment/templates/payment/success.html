@@ -1,24 +1,5 @@
-<!-- {% if products %}
-          <h1> yes present </h1>
-
-{% endif %} -->
-
-
-<!-- {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %} -->
-
-
-<!-- {{ishothour}} -->
-
 
 {% load static %}
-
-
 
 <html>
     <title>
@@ -40,24 +21,29 @@
 
         <!-- bs elemets ############## -->
 
+        <!-- <div style = " float: right; " >
+            <form align="center" id=formid  > {% csrf_token %}
 
+                <button type="button" name="deletebtn" onclick="ajaxcalldel()" id="btn2">CLEAR CART</button>
+              </form>
 
+        </div>
+
+        <div align="center" style = "float: right;">
+            <a href="http://127.0.0.1:8000/users/{{iden}}/cart" id="btn3">GO TO CART</a>
+            </div> -->
 
 
         <h1 align = "center" class="hg">DOODLEBLUE CART</h1>
         <h1 align = "center" class="hg">PRODUCT ITEMS</h1>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Archivo|Julius+Sans+One&display=swap" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="{% static '/css/main.css' %}"> -->
 
         <style>
             
-            /* #main{
-                font-family: 'Archivo', sans-serif;
-
-            } */
-
+            
             .hg{
                 color: skyblue;
                 font-family: 'Julius Sans One', sans-serif;
@@ -94,6 +80,57 @@
             border-left: thick solid #ff0000;
             }
 
+            /* .col1{
+                width: 20%;
+            }
+
+            .col2{
+                width: 20%;
+            }
+
+            .col3{
+                width: 20%;
+            }
+
+            .col4{
+                width: 20%;
+            }
+
+            .col5{
+                width: 20%;
+            } */
+
+        
+            @media only screen and (max-width: 320px) {
+
+                    [class*="col-"] {
+                    width: 100%;
+                }
+
+                .btn{
+                    background-color:azure;
+                    font-family: 'Archivo', sans-serif;
+                    color : green;
+                }
+                .d1 {
+                    position: relative;
+                    top: 300px;
+                    left: 80px;
+                }
+
+                .d2 {
+                    position: relative;
+                    top: 300px;
+                    left: 100;
+                }
+                .hg{
+                    color: skyblue;
+                    font-family: 'Julius Sans One', sans-serif;
+                    position:relative; left:100px;
+                }
+
+                    }
+
 
         
         </style>        
@@ -102,11 +139,10 @@
 
     <body id="b" >
         
-        <div class="master">
-
-
-
           <div align="center" style="position:relative; right:-150; bottom: 0px; " id="main" > 
+
+
+            <div class="col1">
 
             <table border="1" align="center" style="float: left">
                 <tr>
@@ -118,6 +154,7 @@
                 {% if product.catid == 1 %}
 
                 <tr>
+                    <td>ITEM</td><td>PRICE<td/>
                     <td>{{ product.item }}</td> <td>{{ product.price }} </td>
     
                     <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
@@ -130,7 +167,9 @@
                         
             </table>
 
+            </div>
 
+            <div class="col2">
 
 
           <table border="1" align="center" style="float: left">
@@ -147,6 +186,7 @@
             
             
             <tr>
+                <td>ITEM</td><td>PRICE<td/>
                 <td>{{ product.item }}</td> <td>{{ product.price }} </td>
 
                 <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
@@ -158,8 +198,9 @@
             {%endfor%}
             
           </table>
+            </div>  
 
-
+          <div class="col3">
 
           <table border="1" align="center" style="float: left">
             <tr>
@@ -175,6 +216,7 @@
             
             
             <tr>
+                <td>ITEM</td><td>PRICE<td/>
                 <td>{{ product.item }}</td> <td>{{ product.price }} </td>
 
                 <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
@@ -186,7 +228,9 @@
             {%endfor%}
             
           </table>
+        </div>
 
+          <div class="col4">
 
           <table border="1" align="center" style="float: left">
             <tr>
@@ -202,17 +246,22 @@
             
             
             <tr>
+                <td>ITEM</td><td>PRICE<td/>
                 <td>{{ product.item }}</td> <td>{{ product.price }} </td>
 
                 <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
 
             </tr>
+
             
             {% endif %}
 
             {%endfor%}
             
           </table>
+        </div>
+
+          <div class="col5">
 
           <table border="1" align="center" style="float: left">
             <tr>
@@ -225,17 +274,21 @@
             {% if product.catid == 5 %}
 
             <tr>
+                <td>ITEM</td><td>PRICE<td/>
                 <td>{{ product.item }}</td> <td>{{ product.price }} </td>
 
                 <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
 
             </tr>
+
             
             {% endif %}
 
             {%endfor%}
                     
         </table>
+            </div>
+
 
         </div>
 
@@ -254,6 +307,7 @@
             {% if product.catid == max %}
 
             <tr>
+                <td>ITEM</td><td>PRICE<td/>
                 <td>{{ product.item }}</td> <td>{{ product.price }} </td>
 
                 <td><button type="button" name="name" class="btn" value="{{product.item}}|{{product.price}}" id='it{{product.id}}' > ADD TO CART  </button></td>
@@ -269,7 +323,7 @@
         {% endif %}
 
         
-         <div style = "position:relative; left:-800px; bottom: -500px; ">
+         <div class="d1">
             <form align="center" id=formid  > {% csrf_token %}
 
                 <button type="button" name="deletebtn" onclick="ajaxcalldel()" id="btn2">CLEAR CART</button>
@@ -280,12 +334,12 @@
         
 
 
-        <div align="center" style = "position:relative; left:-800px; bottom: -500; ">
+        <div class="d2">
              <a href="http://127.0.0.1:8000/users/{{iden}}/cart" id="btn3">GO TO CART</a>
              </div>
         
     
-  
+        
             </body>
 
         <script type="text/javascript">

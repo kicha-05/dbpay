@@ -135,7 +135,7 @@ class UserValidView(APIView):
                         "ishothour" : ishothour
                          
                     }
-                    return render(request, 'payment/success.html',
+                    return render(request, 'payment/letsdo.html',
                     context=context)                    
 
                     #PRODUCT VIEW GET METHOD DUPLICATE ENDS
@@ -281,6 +281,8 @@ class successredirect(APIView):
             try:
                 u = UserProfile.objects.get(name=name)
 
+                con = {"id" : u.id}
+
                 ci = u.cart_set.all()
 
                 print(u.hot_hour)
@@ -296,7 +298,7 @@ class successredirect(APIView):
                         Response("PREVIOUS ORDER LIST NOT CREATED FOR -" + i.item)
             except:
                 print("NO PREVIOUS ORDER CREATED")
-        return render(request, 'payment/paysuccess.html')
+        return render(request, 'payment/paysuccess.html',context=con)
 
 class Orders(APIView):
     def get(self,request,pk,format=None):

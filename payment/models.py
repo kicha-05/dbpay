@@ -25,6 +25,7 @@ class ProductModel(models.Model):
     price = models.IntegerField()
     category = models.CharField(max_length=30)
     catid = models.IntegerField()
+    image = models.ImageField(null=True,blank=True,upload_to="pro-imgs/")
 
     def __str__(self):
         return self.item
@@ -54,6 +55,14 @@ class PrevOrder3(models.Model):
 
     def __str__(self):
         return self.item
+
+
+class secretid(models.Model):
+    userprofile = models.ForeignKey(UserProfile,on_delete=models.CASCADE,db_column = "s_no")
+    sno = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.sno
 
 
 
